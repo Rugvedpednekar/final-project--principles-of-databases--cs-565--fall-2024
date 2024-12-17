@@ -4,3 +4,7 @@ GRANT ALL PRIVILEGES ON passwords.* TO 'passwords_user'@'localhost';
 USE passwords;
 
 SOURCE create_users_table.sql
+SOURCE create_accounts_table.sql
+SOURCE create_passwords_table.sql
+SOURCE populate_users_table.sql
+
