@@ -1,8 +1,9 @@
-CREATE TABLE accounts (
+CREATE TABLE IF NOT EXISTS accounts (
     account_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    site_name VARCHAR(100) NOT NULL,
-    site_url VARCHAR(255),
+    site_name VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    password VARBINARY(255) NOT NULL,
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
