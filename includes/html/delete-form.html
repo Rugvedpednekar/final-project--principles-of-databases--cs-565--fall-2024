@@ -1,13 +1,23 @@
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return confirmDeletion();">
   <fieldset>
     <legend>Delete</legend>
-    DELETE FROM artist WHERE
+    
+    <label for="current-attribute">Select column to delete by:</label>
     <select name="current-attribute" id="current-attribute">
-      <option>artist_id</option>
-      <option>artist_name</option>
-    </select>
-    = <input type="text" name="pattern" required>
-      <input type="hidden" name="submitted" value="4">
-    <p><input type="submit" value="delete"></p>
+      <option value="account_id">Account ID</option>
+      <option value="site_name">Site/App Name</option>
+    </select><br>
+
+    <label for="pattern">Value to match:</label>
+    <input type="text" name="pattern" id="pattern" required><br>
+
+    <input type="hidden" name="submitted" value="4">
+    <p><input type="submit" value="Delete"></p>
   </fieldset>
 </form>
+
+<script>
+  function confirmDeletion() {
+    return confirm('Are you sure you want to delete this account? This action cannot be undone.');
+  }
+</script>
