@@ -1,18 +1,58 @@
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   <fieldset>
-    <legend>Update</legend>
-    UPDATE artist SET
-    <select name="current-attribute" id="current-attribute">
-      <option>artist_name</option>
-      <option>artist_id</option>
+    <legend>Update Account Details</legend>
+    
+    <!-- Column to Update -->
+    <label for="current-attribute">
+      Column to Update:
+      <span title="Select the field you want to update (e.g., Site/App Name, URL, Password, or Comment)">?</span>
+    </label>
+    <select name="current-attribute" id="current-attribute" required>
+      <option value="site_name">Site/App Name</option>
+      <option value="url">URL</option>
+      <option value="password">Password</option>
+      <option value="comment">Comment</option>
     </select>
-    = <input type="text" name="new-attribute" required> WHERE
-    <select name="query-attribute" id="query-attribute">
-      <option>artist_id</option>
-      <option>artist_name</option>
+    <br>
+
+    <!-- New Value -->
+    <label for="new-attribute">
+      New Value:
+      <span title="Enter the new value for the selected column">?</span>
+    </label>
+    <input type="text" name="new-attribute" id="new-attribute" required placeholder="Enter new value">
+    <br>
+
+    <!-- Match By Column -->
+    <label for="query-attribute">
+      Match By Column:
+      <span title="Select the column used to find the record to update (e.g., Account ID or Site/App Name)">?</span>
+    </label>
+    <select name="query-attribute" id="query-attribute" required>
+      <option value="account_id">Account ID</option>
+      <option value="site_name">Site/App Name</option>
     </select>
-    = <input type="text" name="pattern" required>
+    <br>
+
+    <!-- Value to Match -->
+    <label for="pattern">
+      Value to Match:
+      <span title="Enter the value to match in the selected column">?</span>
+    </label>
+    <input type="text" name="pattern" id="pattern" required placeholder="Enter value to match">
+    <br>
+
+    <!-- Hidden Field -->
     <input type="hidden" name="submitted" value="2">
-    <p><input type="submit" value="update"></p>
+
+    <!-- Submit and Reset Buttons -->
+    <p>
+      <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        Update
+      </button>
+      <button type="reset" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        Reset
+      </button>
+    </p>
   </fieldset>
 </form>
