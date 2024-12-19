@@ -1,8 +1,82 @@
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <!-- Account Details Section -->
   <fieldset>
-    <legend>Insert</legend>
-    INSERT INTO artist VALUES ( <input type="text" name="artist-id" placeholder="artist_id" required>, <input type="text" name="artist-name" placeholder="artist_name" required> );
-    <input type="hidden" name="submitted" value="3">
-    <p><input type="submit" value="insert"></p>
+    <legend>Account Details</legend>
+
+    <!-- Site/App Name -->
+    <label for="site-name">
+      Site/App Name: 
+      <span title="Enter the name of the site or application, e.g., YouTube">?</span>
+    </label>
+    <input type="text" name="site-name" id="site-name" required placeholder="e.g., YouTube"><br>
+
+    <!-- URL -->
+    <label for="url">
+      URL: 
+      <span title="Enter the website URL, e.g., https://www.youtube.com">?</span>
+    </label>
+    <input type="url" name="url" id="url" required placeholder="e.g., https://www.youtube.com"><br>
+
+    <!-- Username -->
+    <label for="username">
+      Username: 
+      <span title="Enter the username for this account">?</span>
+    </label>
+    <input type="text" name="username" id="username" required placeholder="e.g., johndoe123"><br>
+
+    <!-- Password -->
+    <label for="password">
+      Password: 
+      <span title="Choose a strong password for this account">?</span>
+    </label>
+    <input type="password" name="password" id="password" required placeholder="Choose a strong password">
+    <input type="checkbox" id="show-password" onclick="togglePassword()"> Show Password<br>
   </fieldset>
+
+  <!-- Personal Information Section -->
+  <fieldset>
+    <legend>Personal Information</legend>
+
+    <!-- User ID -->
+    <label for="user-id">
+      User ID: 
+      <span title="Enter the user ID associated with this account">?</span>
+    </label>
+    <input type="number" name="user-id" id="user-id" required placeholder="e.g., 12345"><br>
+
+    <!-- Email -->
+    <label for="email">
+      Email Address: 
+      <span title="Enter the email address associated with this account">?</span>
+    </label>
+    <input type="email" name="email" id="email" required placeholder="e.g., user@example.com"><br>
+
+    <!-- Comment -->
+    <label for="comment">
+      Comment: 
+      <span title="Enter any additional notes about this account">?</span>
+    </label>
+    <textarea name="comment" id="comment" rows="4" required placeholder="e.g., Notes about this account"></textarea><br>
+  </fieldset>
+
+  <!-- Submit and Reset Buttons -->
+  <p>
+    <button type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">
+      Add Account
+    </button>
+    <button type="reset" style="background-color: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer;">
+      Reset
+    </button>
+  </p>
+  
+  <!-- Hidden Input -->
+  <input type="hidden" name="submitted" value="3">
 </form>
+
+<!-- JavaScript for Show Password Toggle -->
+<script>
+  function togglePassword() {
+    const passwordField = document.getElementById('password');
+    passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+  }
+</script>
